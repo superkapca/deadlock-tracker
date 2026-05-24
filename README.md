@@ -12,7 +12,13 @@ python -m venv .venv
 pip install -e ".[dev]"
 ```
 
-Create `.env`:
+Create `.env` from the example file:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+Then fill in your real NeonDB connection values:
 
 ```env
 DATABASE_URL=postgresql+asyncpg://USER:PASSWORD@HOST.neon.tech/DB?ssl=require
@@ -28,6 +34,8 @@ CORS_ORIGINS=http://localhost:3000,http://127.0.0.1:3000,http://localhost:5173,h
 ```
 
 Use Neon's pooled connection string for `DATABASE_URL` in deployed app traffic when available. Use a direct connection string for `ALEMBIC_DATABASE_URL` if Neon provides separate pooled and direct URLs.
+
+`DEADLOCK_API_KEY` is optional. Leave it empty for public unauthenticated access, or set it if you have a Deadlock API key for higher rate limits.
 
 Run migrations:
 
