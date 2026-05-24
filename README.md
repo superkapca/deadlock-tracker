@@ -24,6 +24,7 @@ CACHE_PLAYER_TTL_MINUTES=15
 CACHE_MATCH_TTL_HOURS=24
 CACHE_MMR_TTL_MINUTES=60
 HTTP_TIMEOUT_SECONDS=15
+CORS_ORIGINS=http://localhost:3000,http://127.0.0.1:3000,http://localhost:5173,http://127.0.0.1:5173
 ```
 
 Use Neon's pooled connection string for `DATABASE_URL` in deployed app traffic when available. Use a direct connection string for `ALEMBIC_DATABASE_URL` if Neon provides separate pooled and direct URLs.
